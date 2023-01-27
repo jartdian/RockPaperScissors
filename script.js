@@ -1,11 +1,14 @@
+playerSelection = prompt('Rock, Paper or Scissors?\n').toLowerCase()
+
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3)
     return rand === 0 ? 'rock' : rand === 1 ? 'paper' : 'scissors'
 }
 
-// playerSelection = prompt('Rock, Paper or Scissors?\n').toLowerCase()
+let computerSelection = getComputerChoice()
 
 function playRound(playerSelection, computerSelection) {
+    
     if (playerSelection == 'rock' && computerSelection == 'rock') {
         return `Draw! rock vs rock`
     }
@@ -32,7 +35,29 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-const playerSelection = 'rock';
-const computerSelection = getComputerChoice();
 
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let score = {win: 0,lose: 0}
+    for (let i = 0; i < 5; i++) {
+        result = playRound(playerSelection,computerSelection);
+        if (result.includes("Win")) {
+            score.win +=1
+        }
+        else if(result.includes("Lose")) {
+            score.lose +=1
+        }
+        else {
+            score.lose +=1;
+            score.win += 1;
+        }
+        computerSelection = getComputerChoice()
+        console.log(result);
+        console.log(score);
+        playerSelection = prompt('Rock, Paper or Scissors?\n').toLowerCase()
+    }
+    console.log(`Final Score \n Human: ${score.win} vs Computer ${score.lose} \n`)
+    console.log(score.win > score.lose ? "Congratulations You Win!!!" : "You Lose :-( Good luck next time");
+    
+}
+
+game()
