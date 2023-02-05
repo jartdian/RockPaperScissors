@@ -3,22 +3,53 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Document</title>
   </head>
-  <body style="background-color: rgb(36, 36, 36); color: rgb(177, 99, 99)">
-    <header><h1> Rock Paper Scissors </h1></header>
+  <body >
+    <header>
+        <h1>Rock Paper Scissors</h1>
+        <div class="inputContainer">
+          <p>Pick Rounds :</p>
+          <input class="rounds" type="number" min="1" max="10" value="3" />
+
+        </div>
+      
+    </header>
+    <h1 class="finalResult"></h1>
     <div class="container">
-      <h1 class="finalResult"></h1>
-      <button id="choiceBtn" class="rock">Rock</button>
-      <button id="choiceBtn" class="paper">Paper</button>
-      <button id="choiceBtn" class="scissors">Scissors</button>
-      <input class="rounds" type="number" min="1" max="10" value="3">
-      <h2 class="roundResult"></h2>
+      <div class="playerChoiceContainer">
+        <h1>Player</h1>
+        <p class="playerEmoji">🙂</p>
+        <div class="playerChoiceText"></div>
+      </div>
+      <div class="buttons">
+        <button id="choiceBtn" class="rock">Rock</button>
+        <button id="choiceBtn" class="paper">Paper</button>
+        <button id="choiceBtn" class="scissors">Scissors</button>
+      </div>
+      <div class="computerChoiceContainer">
+        <h1>AI</h1>
+        <p>🤖</p>
+        <div class="computerChoiceText"></div>
+      </div>
     </div>
-    <button class="restartGame">Restart</button>
+    <div class="roundResultContainer">
+      <h2 class="roundResult"></h2>
+
+    </div>
+    <div class="restartBtn">
+      <button class="restartGameButton">Restart</button>
+    </div>
     <script src="/script.js"></script>
   </body>
 </html>

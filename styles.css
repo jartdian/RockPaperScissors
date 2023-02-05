@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Libre Baskerville", serif;
+}
+body {
+  background-color: #242424;
+  color: rgb(177, 99, 99);
+  width: 1200px;
+  margin: 0 auto;
+}
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5em;
+  height: max-content;
+  width: 5em;
+  font-size: 1.5em;
+  font-weight: 600;
+  padding: 0.9em 0.5em;
+}
+button:active {
+  transform: translateY(2px);
+}
+input[type="number"] {
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1.4em;
+  background: #242424;;
+  color: white;
+  width: 2.8em;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 4em;
+  gap: 1em;
+}
+header p {
+    display: inline-block;
+    font-size: 1.3em;
+    vertical-align: text-bottom;
+}
+.rounds {
+  padding: 0.3em;
+  width: 3.5em;
+  font-size: 1em;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  height: 10em;
+}
+.container p {
+    font-size: 3em; text-align: center;
+}
+.computerChoiceContainer {
+    width: 7em;
+    text-align: center;
+}
+.playerChoiceText, .computerChoiceText {
+    font-size: 2em;
+    text-align: center;
+    margin-top: 1em;
+}
+.finalResult {
+  font-size: 2.5em;
+  height: 1em;
+  text-align: center;
+  padding-bottom: 4em;
+}
+.roundResultContainer {
+    height: 4em;
+}
+.roundResult {
+  font-size: 2em;
+  text-align: center;
+  padding-top: 2em;
+}
+.winnerText {
+  color: green;
+  font-weight: bold;
+}
+.loserText {
+  color: red;
+  font-weight: bold;
+}
+.buttons {
+  gap: 4em;
+  display: flex;
+}
+
+.restartBtn {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 5em;
+}
+.restartGameButton {
+  color: black;
+  background-color: #eab308;
+}
+.restartGameButton:hover {
+  background-color: #a16207;
+}
+
+
