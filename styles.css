@@ -72,6 +72,12 @@ header p {
     font-size: 2em;
     text-align: center;
     margin-top: 1em;
+    height: 5em;
+}
+.playerScore , .computerScore {
+    height: 2em;
+text-align: center;
+font-size: 2em;
 }
 .finalResult {
   font-size: 2.5em;
@@ -80,12 +86,14 @@ header p {
   padding-bottom: 4em;
 }
 .roundResultContainer {
-    height: 4em;
+    margin: 0 auto;
+    height: 6em;
+    
+    width: 25em;
 }
 .roundResult {
   font-size: 2em;
   text-align: center;
-  padding-top: 2em;
 }
 .winnerText {
   color: green;

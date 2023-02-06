@@ -5,7 +5,9 @@ const finalResult = document.querySelector(".finalResult");
 const roundsInput = document.querySelector(".rounds");
 const playerChoiceText = document.querySelector(".playerChoiceText");
 const computerChoiceText = document.querySelector(".computerChoiceText");
-const playerEmoji = document.querySelector('.playerEmoji')
+const playerEmoji = document.querySelector(".playerEmoji");
+const playerScore = document.querySelector(".playerScore");
+const computerScore = document.querySelector(".computerScore");
 
 let round = 0;
 let score = { win: 0, lose: 0 };
@@ -28,6 +30,8 @@ function versus(playerSelection, computerSelection) {
     roundResult.textContent = `Draw! ${playerSelection} vs ${computerSelection}`;
     score.win += 1;
     score.lose += 1;
+    playerScore.textContent = score.win;
+    computerScore.textContent = score.lose;
     return;
   } else if (
     (playerSelection == "Rock" && computerSelection == "Paper") ||
@@ -35,7 +39,8 @@ function versus(playerSelection, computerSelection) {
     (playerSelection == "Scissors" && computerSelection == "Rock")
   ) {
     score.lose += 1;
-    roundResult.textContent = `You lose this round, ${computerSelection} beats ${playerSelection}`;
+    computerScore.textContent = score.lose;
+    roundResult.textContent = `You lose this round ${computerSelection} beats ${playerSelection}`;
     return;
   } else if (
     (playerSelection == "Rock" && computerSelection == "Scissors") ||
@@ -43,7 +48,8 @@ function versus(playerSelection, computerSelection) {
     (playerSelection == "Scissors" && computerSelection == "Paper")
   ) {
     score.win += 1;
-    roundResult.textContent = `You win this round, ${playerSelection} beats ${computerSelection}`;
+    playerScore.textContent = score.win;
+    roundResult.textContent = `You win this round ${playerSelection} beats ${computerSelection}`;
     return;
   }
 }
@@ -56,7 +62,8 @@ function restartGame() {
   playerEmoji.textContent = "🙂";
   finalResult.classList.remove("winnerText");
   finalResult.classList.remove("loserText");
-
+  playerScore.textContent = 0;
+  computerScore.textContent = 0;
   score = { win: 0, lose: 0 };
   round = 0;
   roundsInput.disabled = false;
@@ -73,7 +80,7 @@ function result() {
     finalResult.classList.add("loserText");
     finalResult.textContent = `Unfortunately You Lost 🥺 
     ${score.win}-${score.lose}`;
-    playerEmoji.textContent = getRandomUnhappyEmoji()
+    playerEmoji.textContent = getRandomUnhappyEmoji();
   } else if (score.win === score.lose) {
     finalResult.textContent = `It's a Draw! \n ${score.win}-${score.lose}`;
   }
@@ -88,8 +95,9 @@ function playRound(e) {
   let computerSelection = getComputerChoice();
   playerChoiceText.textContent = playerSelection;
   computerChoiceText.textContent = computerSelection;
+
   round++;
-  
+
   if (round === rounds) {
     versus(playerSelection, computerSelection);
     buttons.forEach((button) => (button.disabled = true));
@@ -98,5 +106,4 @@ function playRound(e) {
   return versus(playerSelection, computerSelection);
 }
 
-// TODO: Create a header for Current Score
 // Add media queries
