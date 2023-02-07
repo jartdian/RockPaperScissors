@@ -3,12 +3,24 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Libre Baskerville", serif;
+  --bg: #424874;
+  --bg-darker: #1b1e30;
+  --btns: #dcd6f7;
+  --btns-darker: #baaeef;
+  --headings-text: #cacfd6;
+  --choices-text: #971c57;
+  --score-text: #9696f2;
+  --lose-text: #9d152e
+}
+html {
+  background-color: var(--bg-darker);
 }
 body {
-  background-color: #242424;
-  color: rgb(177, 99, 99);
   width: 1200px;
   margin: 0 auto;
+}
+h1,h2,h3,h4,h5,p {
+  color: var(--headings-text);
 }
 button {
   cursor: pointer;
@@ -19,15 +31,22 @@ button {
   font-size: 1.5em;
   font-weight: 600;
   padding: 0.9em 0.5em;
+  background-color: var(--btns-darker);
+}
+button:hover {
+  background-color: var(--btns);
 }
 button:active {
   transform: translateY(2px);
+}
+button:disabled {
+  opacity: 0.2;
 }
 input[type="number"] {
   border: none;
   border-radius: 0.5em;
   font-size: 1.4em;
-  background: #242424;;
+  background: var(--bg);
   color: white;
   width: 2.8em;
 }
@@ -47,9 +66,9 @@ header {
   gap: 1em;
 }
 header p {
-    display: inline-block;
-    font-size: 1.3em;
-    vertical-align: text-bottom;
+  display: inline-block;
+  font-size: 1.3em;
+  vertical-align: text-bottom;
 }
 .rounds {
   padding: 0.3em;
@@ -62,22 +81,25 @@ header p {
   height: 10em;
 }
 .container p {
-    font-size: 3em; text-align: center;
+  font-size: 3em;
+  text-align: center;
 }
 .computerChoiceContainer {
-    width: 7em;
-    text-align: center;
+  width: 7em;
+  text-align: center;
 }
-.playerChoiceText, .computerChoiceText {
-    font-size: 2em;
-    text-align: center;
-    margin-top: 1em;
-    height: 5em;
+.playerChoiceText,
+.computerChoiceText {
+  text-align: center;
+  margin-top: 1em;
+  color: #f192c7;
 }
-.playerScore , .computerScore {
-    height: 2em;
-text-align: center;
-font-size: 2em;
+.playerScore,
+.computerScore {
+  height: 2em;
+  text-align: center;
+  font-size: 2em;
+  color: var(--score-text);
 }
 .finalResult {
   font-size: 2.5em;
@@ -86,21 +108,21 @@ font-size: 2em;
   padding-bottom: 4em;
 }
 .roundResultContainer {
-    margin: 0 auto;
-    height: 6em;
-    
-    width: 25em;
+  margin: 0 auto;
+  height: 6em;
+
+  width: 25em;
 }
 .roundResult {
   font-size: 2em;
   text-align: center;
 }
 .winnerText {
-  color: green;
+  color: greenyellow;
   font-weight: bold;
 }
 .loserText {
-  color: red;
+  color: var(--lose-text);
   font-weight: bold;
 }
 .buttons {
@@ -120,5 +142,3 @@ font-size: 2em;
 .restartGameButton:hover {
   background-color: #a16207;
 }
-
-

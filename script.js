@@ -1,6 +1,5 @@
 const restartButton = document.querySelector(".restartGameButton");
 const buttons = [...document.querySelectorAll("#choiceBtn")];
-const roundResult = document.querySelector(".roundResult");
 const finalResult = document.querySelector(".finalResult");
 const roundsInput = document.querySelector(".rounds");
 const playerChoiceText = document.querySelector(".playerChoiceText");
@@ -27,7 +26,6 @@ function getComputerChoice() {
 
 function versus(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    roundResult.textContent = `Draw! ${playerSelection} vs ${computerSelection}`;
     score.win += 1;
     score.lose += 1;
     playerScore.textContent = score.win;
@@ -40,7 +38,6 @@ function versus(playerSelection, computerSelection) {
   ) {
     score.lose += 1;
     computerScore.textContent = score.lose;
-    roundResult.textContent = `You lose this round ${computerSelection} beats ${playerSelection}`;
     return;
   } else if (
     (playerSelection == "Rock" && computerSelection == "Scissors") ||
@@ -49,13 +46,11 @@ function versus(playerSelection, computerSelection) {
   ) {
     score.win += 1;
     playerScore.textContent = score.win;
-    roundResult.textContent = `You win this round ${playerSelection} beats ${computerSelection}`;
     return;
   }
 }
 
 function restartGame() {
-  roundResult.textContent = "";
   finalResult.textContent = "";
   playerChoiceText.textContent = "";
   computerChoiceText.textContent = "";
@@ -73,7 +68,7 @@ function restartGame() {
 function result() {
   if (score.win > score.lose) {
     finalResult.classList.add("winnerText");
-    finalResult.textContent = `Congratulations You Won 🥳 
+    finalResult.textContent = `Congratulations! You Won 🥳 
     ${score.win}-${score.lose}`;
   }
   if (score.win < score.lose) {
@@ -82,12 +77,11 @@ function result() {
     ${score.win}-${score.lose}`;
     playerEmoji.textContent = getRandomUnhappyEmoji();
   } else if (score.win === score.lose) {
-    finalResult.textContent = `It's a Draw! \n ${score.win}-${score.lose}`;
+    finalResult.textContent = `It's a Draw! ${score.win}-${score.lose}`;
   }
 }
 
 function playRound(e) {
-  roundResult.textContent = "";
   let rounds = roundsInput.valueAsNumber;
   roundsInput.disabled = true;
   let playerSelection =
