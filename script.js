@@ -100,4 +100,3 @@ function playRound(e) {
   return versus(playerSelection, computerSelection);
 }
 
-// Add media queries

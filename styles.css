@@ -16,7 +16,7 @@ html {
   background-color: var(--bg-darker);
 }
 body {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 h1,h2,h3,h4,h5,p {
@@ -27,7 +27,7 @@ button {
   border: none;
   border-radius: 0.5em;
   height: max-content;
-  width: 5em;
+  max-width: 5em;
   font-size: 1.5em;
   font-weight: 600;
   padding: 0.9em 0.5em;
@@ -72,20 +72,25 @@ header p {
 }
 .rounds {
   padding: 0.3em;
-  width: 3.5em;
+  max-width: 3.5em;
   font-size: 1em;
 }
 .container {
   display: flex;
   justify-content: space-around;
-  height: 10em;
+  min-height: 14em;
+  
 }
 .container p {
   font-size: 3em;
   text-align: center;
 }
+.playerChoiceContainer{
+  text-align: center;
+  min-height: 14em;
+}
 .computerChoiceContainer {
-  width: 7em;
+  min-width: 7em;
   text-align: center;
 }
 .playerChoiceText,
@@ -107,16 +112,7 @@ header p {
   text-align: center;
   padding-bottom: 4em;
 }
-.roundResultContainer {
-  margin: 0 auto;
-  height: 6em;
 
-  width: 25em;
-}
-.roundResult {
-  font-size: 2em;
-  text-align: center;
-}
 .winnerText {
   color: greenyellow;
   font-weight: bold;
@@ -141,4 +137,58 @@ header p {
 }
 .restartGameButton:hover {
   background-color: #a16207;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 880px) {
+  .container {
+    flex-wrap: wrap;
+    gap: 9em;
+  }
+  .buttons {
+    flex-basis: 100%;
+    justify-content: center;
+  }
+  .playerChoiceContainer{
+    order: 2;
+  }
+  .computerChoiceContainer{
+    order: 3
+  }
+  .finalResult {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .restartBtn {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  * {
+    font-size: .95em;
+  }
+  .container{
+    gap: 4.5em;
+  }
+  .finalResult {
+    font-size: 1.5em;
+  }
+  header p {
+    font-size: 1em;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  * {
+    font-size: 0.9em;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
 }
